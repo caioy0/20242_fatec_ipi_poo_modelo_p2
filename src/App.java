@@ -43,7 +43,7 @@ public class App {
             }
             case 0:{
               JOptionPane.showMessageDialog(null, "Até!");
-            }            
+            }
           }
         }while(op != 0);
       }
