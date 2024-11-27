@@ -23,9 +23,24 @@ public class App {
               JOptionPane.showMessageDialog(null, pessoas);
               break;
             }
-            case 3:{
+            case 3:{ //Professor Troquei a senha do postgresql!!!!!!!
               //capturar codigo, nome fone e e-mail
               //atualizar nome, fone e e-mail pessoa cujo codigo foi especificado
+              try {
+                var codigo = Integer.parseInt(JOptionPane.showInputDialog("Código da pessoa a atualizar?")); // Captura do codigo
+                var nome = JOptionPane.showInputDialog("Novo Nome?");
+                var fone = JOptionPane.showInputDialog("Novo Fone?");
+                var email = JOptionPane.showInputDialog("Novo E-mail?");
+                var p = new Pessoa(codigo, nome, fone, email);
+                // Atualização no banco de dados
+                var dao = new PessoaDAO();
+                dao.atualizar(p);
+                JOptionPane.showMessageDialog(null, "Atualização concluída!");
+              } 
+              catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + e.getMessage());
+              }
+              break;
             }
             case 4: {
               var codigo = Integer.parseInt(
@@ -47,4 +62,4 @@ public class App {
           }
         }while(op != 0);
       }
-}
+} //Professor Troquei a senha do postgresql
